@@ -81,8 +81,10 @@ typedef std::complex<precision> lp_complex;
 extern "C" {
     void zgetrf_(int*, int*, void*, int*, int*, int*);
     void zgetri_(int*, void*, int*, int*, void*, int*, int*);
+    void zgetrs_(char*, int*, int*, void*, int*, int*, void*, int*, int*);
     void cgetrf_(int*, int*, void*, int*, int*, int*);
     void cgetri_(int*, void*, int*, int*, void*, int*, int*);
+    void cgetrs_(char*, int*, int*, void*, int*, int*, void*, int*, int*);
 }
 typedef std::complex<precision> lp_complex;
 #endif
