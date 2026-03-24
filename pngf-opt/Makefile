@@ -24,8 +24,8 @@ MKLROOT = /opt/intel/oneapi/2025.0/mkl
 # - If on MacOS, the Accelerate framework
 ifeq ($(UNAME), Linux)
 CC := g++
-CFLAGS := -Ofast -fopenmp -std=c++17 -I/home/USERNAME/.local/Eigen/ -I/opt/intel/oneapi/2025.0/include/ -c
-LDFLAGS := -fopenmp -L/opt/intel/oneapi/2025.0/lib/ -L$(MKLROOT)/lib -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 -lpthread -lm -ldl
+CFLAGS := -Ofast -fopenmp -std=c++17 -I/usr/include/eigen3 -c
+LDFLAGS := -fopenmp -lopenblas -lpthread -lm -ldl
 endif
 ifeq ($(UNAME), Darwin)
 CC=g++-12

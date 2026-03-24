@@ -76,13 +76,15 @@ double operator"" _d(long double v)
 #include <Accelerate/Accelerate.h>
 typedef std::complex<precision> lp_complex;
 #else
-// include Intel MKL for Linux:
-#include <mkl.h>
-#ifdef USE_SINGLE_PRECISION
-typedef MKL_Complex8 lp_complex;
-#else
-typedef MKL_Complex16 lp_complex;
-#endif
+// Use OpenBLAS/LAPACK on Linux:
+#include <cblas.h>
+extern "C" {
+    void zgetrf_(int*, int*, void*, int*, int*, int*);
+    void zgetri_(int*, void*, int*, int*, void*, int*, int*);
+    void cgetrf_(int*, int*, void*, int*, int*, int*);
+    void cgetri_(int*, void*, int*, int*, void*, int*, int*);
+}
+typedef std::complex<precision> lp_complex;
 #endif
 
 using namespace std;

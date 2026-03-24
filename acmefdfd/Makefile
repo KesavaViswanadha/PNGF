@@ -23,9 +23,9 @@ UNAME := $(shell uname)
 # - If on Linux, your Intel OneAPI installation (include, lib)
 # - MUMPS (include, lib)
 ifeq ($(UNAME), Linux)
-CC := g++
-CFLAGS := -Ofast -fopenmp -std=c++14 -I/usr/mpi/gcc/openmpi-4.1.5a1/include -I/home/USERNAME/.local/Eigen -I/opt/intel/oneapi/2025.0/include -I/home/USERNAME/MUMPS_5.7.3/include
-LDFLAGS := -fopenmp -L/usr/mpi/gcc/openmpi-4.1.5a1/lib -L/usr/local/lib -L/opt/intel/oneapi/2025.0/lib -L/home/USERNAME/MUMPS_5.7.3/lib -lmpi -lmpi_cxx -lcmumps -lpord -liomp5 -lmumps_common -lmpi_mpifh
+CC := mpic++
+CFLAGS := -Ofast -fopenmp -std=c++14 -I/usr/include/eigen3 -I/usr/include
+LDFLAGS := -fopenmp -lcmumps -lmumps_common -lpord -lscalapack-openmpi -llapack -lblas -lpthread -lm
 endif
 ifeq ($(UNAME), Darwin)
 CC=g++-12
