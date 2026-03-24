@@ -24,7 +24,7 @@ UNAME := $(shell uname)
 # - MUMPS (include, lib)
 ifeq ($(UNAME), Linux)
 CC := mpic++
-CFLAGS := -Ofast -fopenmp -std=c++14 -I/usr/include/eigen3 -I/usr/include
+CFLAGS := -Ofast -fopenmp -std=c++14 -I/usr/include/eigen3/Eigen -I/usr/include/eigen3 -I/usr/include
 LDFLAGS := -fopenmp -lcmumps -lmumps_common -lpord -lscalapack-openmpi -llapack -lblas -lpthread -lm
 endif
 ifeq ($(UNAME), Darwin)
